@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <!-- Import Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <!-- Import Day.js -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script>dayjs().format()</script>
     <!-- Import CSS -->
     <link rel="stylesheet" href="css/style.css">
     <title>Boolzapp</title>
@@ -111,7 +114,7 @@
                 </div>
 
                 <div class="messageInput">
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input @keyup.enter="sendMessage" v-model="newMessage" type="text" placeholder="Scrivi un messaggio">
                 </div>
 
                 <div class="vocalMessage">

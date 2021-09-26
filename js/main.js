@@ -86,6 +86,7 @@ const app = new Vue({
             },
         ],
         currentContact: 0,
+        newMessage: '',
     },
     methods: {
         selectedContact(index) {
@@ -98,6 +99,31 @@ const app = new Vue({
             let messageClass = 'message' + ' ' + thisContact.messages[index].status;
 
             return messageClass;
-        }
+        },
+
+        sendMessage() {
+            let thisContact = this.contacts[this.currentContact];
+
+            thisContact.messages.push(
+                {
+                    message: this.newMessage,
+                    date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
+                    status: 'sent',
+                }
+            );
+
+            this.newMessage = '';
+
+            setTimeout(() =>{
+                thisContact.messages.push(
+                    {
+                        message: 'Ok',
+                        date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
+                        status: 'received',
+                    }
+                );
+            }, 1500);
+        },
+
     },
 });
