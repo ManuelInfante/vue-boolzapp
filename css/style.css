@@ -3,3 +3,264 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to bottom, #009688 0px, #009688 15vh, #dddbd1 15vh, #d2dbdc 100%);
+    font-family: 'Lato', sans-serif;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+.container{
+    display: flex;
+    width: 85%;
+    height: 90%;
+    margin: 0 auto;
+}
+
+/* Common */
+.flex{
+    display: flex;
+}
+
+li{
+    list-style: none;
+}
+
+
+
+/* ---------------------------------------------- */
+/* Sezione Dashboard */
+#dashboard{
+    width: calc((100% / 3) * 1);
+    border-right: 1px solid #B1B1B1;
+    background-color: white;
+}
+
+    /* PARTI COMUNI TRA ELEMNTI DI DASHBOARD E CURRENT CHAT */
+/* Appcontroller e currentProfile */
+.appController, .currentProfile{
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    padding: 0 15px;
+    background-color: #EAEAEA;
+}
+
+/* Immagine e nome del nostro profilo */
+
+.appController .myProfile, .currentProfile .profileData{
+    height: 80%;
+    align-items: center;
+}
+
+.appController .myProfile img, .currentProfile .profileData img{
+    height: 100%;
+    border-radius: 50%;
+    margin-right: 7px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.appController .myProfile img:hover,  .currentProfile .profileData img:hover{
+    box-shadow: 0px 0px 15px 0px #00000054;
+}
+
+.appController .myProfile span, .currentProfile .profileData .profileInfo h3{
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.appController .myProfile span:hover, .currentProfile .profileData .profileInfo h3:hover{
+    color: #009688;
+}
+
+/* Icone di: passa alle cerca, allega, impostazioni */
+/* Icone di: passa alle storie, messagi, impostazioni */
+
+.settings .iconList, .chatSettings .iconList{
+    justify-content: center;
+    color: #B1B1B1;
+}
+
+.settings .iconList li, .settings .iconList, .chatSettings .iconList li{
+    padding: 0 10px;
+}
+
+.settings .iconList li i, .chatSettings .iconList li i{
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.settings .iconList li i:hover, .chatSettings .iconList li i:hover, .emoticons i:hover, .vocalMessage i:hover{
+    color: #959595;
+}
+
+/* Fine Parti comuni */
+
+/* notifiche */
+.notifications{
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px;
+    background-color: #8DDAFB;
+}
+
+/* FINE PARTI COMUNI */
+
+/* simbolo campanella */
+.notifications .notificationsGraphic{
+    padding: 20px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.notifications .notificationsGraphic i{
+    font-size: 25px;
+    color: #8DDAFB;
+}
+
+/* Testo e url */
+
+.notifications h3{
+    font-weight: 300;
+}
+
+.notifications a{
+    font-size: 15px;
+    color: #7694A2;
+    transition: all 0.2s;
+}
+
+.notifications a:hover{
+    color: #4b6e80;
+}
+
+
+
+/* Rubrica */
+
+/* Input per cercare i contatti */
+
+.finderContainer{
+    padding: 7px;
+    background-color: #EAEAEA;
+}
+
+.finder{
+    align-items: center;
+    padding: 0 25px;
+    background-color: white;
+}
+
+.finder i{
+    padding-right: 10px;
+    color: #B8BBBD;
+}
+
+.finderInput_container{
+    width: 100%;
+}
+
+.finder input{
+    width: 100%;
+    border: none;
+    padding: 10px;
+}
+
+/* Contatti */
+.contacts {
+overflow-y: scroll;
+}
+
+.contacts ul li{
+    padding: 15px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-bottom: 1px solid #dddbd1;
+}
+
+.contacts ul li:last-child{
+    border-bottom: none;
+}
+
+.contacts ul li:hover{
+    background-color: #EAEAEA;
+}
+
+.contacts img{
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.contacts span{
+    font-size: 15px;
+}
+
+
+/* ---------------------------------------------- */
+/* Sezione Chat corrente */
+#currentChat{
+    width: calc((100% / 3) * 2);
+    background-color: blue;
+}
+
+.profileData .profileInfo{
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.profileData .profileInfo span{
+    font-size: 12px;
+    padding-top: 5px;
+    color: gray;
+}
+
+.currentMessages{
+    height: 80%;
+    background-image: url('../img/mine.jpg');
+    background-size: 50vh;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+.messageSender{
+    align-items: center;
+    height: 10%;
+    padding: 10px 0;
+    background-color: #F3EEE9;
+}
+
+.emoticons, .vocalMessage{
+    padding: 35px;
+}
+
+.emoticons i, .vocalMessage i{
+    font-size: 22px;
+    color: #6B7377;
+    cursor: pointer;
+    transition: all 0.2s
+}
+
+.messageInput{
+    width: 100%;
+    height: 100%;
+}
+.messageInput input{
+    height: 100%;
+    width: 100%;
+    font-size: 15px;
+    padding: 0 10px;
+    border:none;
+    border-radius: 5px;
+}
+
+
+

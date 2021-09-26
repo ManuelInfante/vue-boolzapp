@@ -13,9 +13,104 @@
     <title>Boolzapp</title>
 </head>
 <body>
-    <div id="app">
-       
-    </div>
+    <div id="app" class="container">
+       <section id="dashboard">
+            <section class="appController flex">
+                <div class="myProfile flex">
+                    <img src="img/avatar_io.jpg" alt="">
+
+                    <span>Manuel Infante</span>
+                </div>
+
+                <div class="settings">
+                    <nav>
+                        <ul class="iconList flex">
+                            <li><i class="fas fa-circle-notch"></i></li>
+                            <li><i class="fas fa-comment-alt"></i></li>
+                            <li><i class="fas fa-ellipsis-v"></i></li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+
+            <section class="notifications flex">
+                <div class="notificationsGraphic">
+                    <i class="fas fa-bell-slash"></i>
+                </div>
+
+                <div class="notificationsText">
+                    <h3>Ricevi notifiche di nuovi messaggi</h3>
+
+                    <a href="">Attiva notifiche desktop</a>
+                </div>
+            </section>
+
+            <section class="rubric">
+                <div class="finderContainer">
+                    <div class="finder flex">
+                        <label for="search">
+                            <i class="fas fa-search"></i>
+                        </label>
+                        <div class="finderInput_container">
+                            <input type="text" id="search" placeholder="Cerca o inizia una nuova chat">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contacts">
+                    <ul>
+                        <li class="flex" v-for="(contact, index) in contacts">
+                            <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+
+                            <span>{{contact.name}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+       </section>
+
+       <section id="currentChat">
+            <section class="currentProfile flex">
+                <div class="profileData flex">
+                    <img src="img/avatar_1.jpg" alt="">
+
+                    <div class="profileInfo flex">
+                        <h3>Michele</h3>
+                        <span>ultimo accesso oggi alle</span>
+                    </div>
+                </div>
+
+                <div class="chatSettings">
+                    <nav>
+                        <ul class="iconList flex">
+                            <li><i class="fas fa-search"></i></li>
+                            <li><i class="fas fa-paperclip"></i></li>
+                            <li><i class="fas fa-ellipsis-v"></i></li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+
+            <section class="currentMessages">
+                
+            </section>
+
+            <section class="messageSender flex">
+                <div class="emoticons">
+                    <i class="far fa-smile"></i>
+                </div>
+
+                <div class="messageInput">
+                    <input type="text" placeholder="Scrivi un messaggio">
+                </div>
+
+                <div class="vocalMessage">
+                    <i class="fas fa-microphone"></i>
+                </div>
+            </section>
+        </section>
+     </div>
+
     
     <!-- Import CDN Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
