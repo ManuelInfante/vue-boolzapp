@@ -190,8 +190,12 @@ overflow-y: scroll;
     border-bottom: none;
 }
 
-.contacts ul li:hover{
+.contacts ul li:hover:not(.focus){
     background-color: #EAEAEA;
+}
+
+.focus{
+    background-color: gray;
 }
 
 .contacts img{
@@ -229,6 +233,7 @@ overflow-y: scroll;
     background-size: 50vh;
     background-position: center;
     background-repeat: repeat;
+    overflow-y: scroll;
 }
 
 .message{

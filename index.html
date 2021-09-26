@@ -55,14 +55,14 @@
                             <i class="fas fa-search"></i>
                         </label>
                         <div class="finderInput_container">
-                            <input type="text" id="search" placeholder="Cerca o inizia una nuova chat">
+                            <input @keyup="finder" v-model="find" type="text" id="search" placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </div>
                 </div>
 
                 <div class="contacts">
                     <ul>
-                        <li @click="selectedContact(index)" class="flex" v-for="(contact, index) in contacts">
+                        <li @click="selectedContact(index)" v-for="(contact, index) in contacts" v-show="contact.visible" :class="(currentContact == index) ? 'focus' : null" class="flex">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
 
                             <span>{{contact.name}}</span>
