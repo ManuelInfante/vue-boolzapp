@@ -231,6 +231,41 @@ overflow-y: scroll;
     background-repeat: repeat;
 }
 
+.message{
+    padding: 15px;
+    position: relative;
+}
+
+.message{
+    margin: 10px;
+    padding: 10px 10px 20px;
+    border-radius: 10px;
+    min-width: 150px;
+}
+
+.message.sent{
+    background-color: #D5F9BA;
+    float: right;
+    clear: both;
+    position: relative;
+}
+
+.message.received{
+    background-color: white;
+    float: left;
+    clear: both;
+}
+
+.message span{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 10px;
+    color: #B6B9BB;
+}
+
+
+/* Input Messaggi */
 .messageSender{
     align-items: center;
     height: 10%;

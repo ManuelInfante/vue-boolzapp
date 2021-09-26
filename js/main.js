@@ -85,8 +85,19 @@ const app = new Vue({
                 ],
             },
         ],
+        currentContact: 0,
     },
     methods: {
-        
+        selectedContact(index) {
+            this.currentContact = index
+            console.log(this.currentContact)
+        },
+
+        getMessageClass(index) {
+            let thisContact = this.contacts[this.currentContact];
+            let messageClass = 'message' + ' ' + thisContact.messages[index].status;
+
+            return messageClass;
+        }
     },
 });
