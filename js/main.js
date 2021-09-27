@@ -31,10 +31,10 @@ const app = new Vue({
                 avatar: '_2',
                 visible: true,
                 messages: [{
-                    date: '20/03/2020 16:30:00',
-                    message: 'Ciao come stai?',
-                    status: 'sent'
-                },
+                        date: '20/03/2020 16:30:00',
+                        message: 'Ciao come stai?',
+                        status: 'sent'
+                    },
                     {
                         date: '20/03/2020 16:30:55',
                         message: 'Bene grazie! Stasera ci vediamo?',
@@ -43,7 +43,7 @@ const app = new Vue({
                     {
                         date: '20/03/2020 16:35:00',
                         message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                        status: 'received'
+                        status: 'sent'
                     }
                 ],
             },
@@ -88,6 +88,10 @@ const app = new Vue({
         currentContact: 0,
         newMessage: '',
         find: null,
+        currentMessage: {
+            index: false,
+            show: false,
+        },
     },
     methods: {
         selectedContact(index) {
@@ -140,6 +144,33 @@ const app = new Vue({
                     element.visible = true;
                 }
             }); 
+        },
+        showOptions(index) {
+            if(this.currentMessage.index !==false && this.currentMessage.index !== index){
+                this.currentMessage.show = false;
+                this.currentMessage.index = false;
+            } else {
+                this.currentMessage.show = (this.currentMessage.show) ? false : true ;
+                this.currentMessage.index = index;
+            }
+        },
+        deleteMessage(index) {
+            this.contacts[this.currentContact].messages.splice(index, 1);
+
+            // Facciamo scomparire il pannello delle opzioni
+            this.currentMessage.show = false;
+            this.currentMessage.index = false;
+        },
+        lostFocus() {
+            this.currentMessage.show = false;
+            this.currentMessage.index = false;
+        },
+        getLastMessage(index) {
+            if(this.contacts[index].messages[this.contacts[index].messages.length - 1].message.length < 30){
+                return this.contacts[index].messages[this.contacts[index].messages.length - 1].message;
+            } else {
+                return this.contacts[index].messages[this.contacts[index].messages.length - 1].message.slice(0, 30) + '...';
+            }
         },
     },
 });

@@ -65,7 +65,10 @@
                         <li @click="selectedContact(index)" v-for="(contact, index) in contacts" v-show="contact.visible" :class="(currentContact == index) ? 'focus' : null" class="flex">
                             <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
 
-                            <span>{{contact.name}}</span>
+                            <span>
+                                <h2>{{contact.name}}</h2>
+                                <div>{{getLastMessage(index)}}</div>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -79,7 +82,7 @@
 
                     <div class="profileInfo flex">
                         <h3>{{contacts[currentContact].name}}</h3>
-                        <span>ultimo accesso oggi alle</span>
+                        <span>ultimo accesso oggi alle {{contacts[currentContact].messages[contacts[currentContact].messages.length -1].date}}</span>
                     </div>
                 </div>
 
@@ -99,7 +102,11 @@
                     <li v-for="(message, index) in contacts[currentContact].messages" :class="getMessageClass(index)">
                         <p>{{message.message}}</p>
                         <span>{{message.date}}</span>
-                        <!-- <i class="fas fa-chevron-down"></i> -->
+                        <i @click="showOptions(index)" class="fas fa-chevron-down"></i>
+                        <div @mouseleave="lostFocus(index)" v-if="currentMessage.show && currentMessage.index === index" class="messageOptions">
+                            <div class="messageInfo">Info messaggio</div>
+                            <div @click="deleteMessage(index)" class="messageDestroy">Cancella messaggio</div>
+                        </div>
                     </li>
                 </ul>
 
